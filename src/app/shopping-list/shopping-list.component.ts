@@ -21,7 +21,9 @@ export class ShoppingListComponent implements OnInit {
     if((addedIngredient.name !== '') && (addedIngredient.amount > 0 )) {
       this.ingredients.push(addedIngredient);
     }
-    else alert("Please check the Name and Amount")
+    else {
+      // alert("Please check the Name and Amount")
+    }
   }
 
 }
