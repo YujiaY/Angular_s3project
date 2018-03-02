@@ -2,6 +2,7 @@ import {Recipe} from './recipe.model';
 import {EventEmitter, Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 import {ShoppingListService} from '../shopping-list/shopping-list.service';
+import index from '@angular/cli/lib/cli';
 @Injectable()
 export class RecipeService {
   private recipes: Recipe[] = [
@@ -30,6 +31,9 @@ export class RecipeService {
   }
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
+  }
+  getRecipe(index: number) {
+    return this.recipes.slice()[index];
   }
 
 
