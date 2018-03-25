@@ -1,14 +1,22 @@
+<<<<<<< Updated upstream
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Ingredient} from '../../shared/ingredient.model';
 import {ShoppingListService} from '../shopping-list.service';
 import {NgForm} from '@angular/forms';
 import {Subscription} from 'rxjs/Subscription';
+=======
+import {Component, OnInit} from '@angular/core';
+import {Ingredient} from '../../shared/ingredient.model';
+import {ShoppingListService} from '../shopping-list.service';
+import {NgForm} from '@angular/forms';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.css']
 })
+<<<<<<< Updated upstream
 export class ShoppingEditComponent implements OnInit, OnDestroy {
 @ViewChild('f') slForm: NgForm;
   subscription: Subscription;
@@ -16,6 +24,9 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editedItemIndex: number;
   editedItem: Ingredient;
 
+=======
+export class ShoppingEditComponent implements OnInit {
+>>>>>>> Stashed changes
 
   constructor(private slService: ShoppingListService) { }
 
@@ -37,6 +48,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+<<<<<<< Updated upstream
 
   onAddItem(form: NgForm) {
     const value = form.value;
@@ -58,6 +70,12 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       this.slService.deleteIngredient(this.editedItemIndex);
       this.onClear();
     }
+=======
+  onAddItem(form: NgForm) {
+      const value = form.value;
+      const newIngredient = new Ingredient(value.name, value.amount);
+      this.slService.addIngredient(newIngredient);
+>>>>>>> Stashed changes
   }
 
 }
