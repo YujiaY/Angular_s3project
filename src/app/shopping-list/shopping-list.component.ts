@@ -29,6 +29,11 @@ private subscription: Subscription;
       )
   }
 
+  onEditItem(index: number) {
+    this.slService.startEditing.next(index);
+  }
+
+
   // onIngredientAdded(addedIngredient: Ingredient) {
   //   if((addedIngredient.name !== '') && (addedIngredient.amount > 0 )) {
   //     this.ingredients.push(addedIngredient);
