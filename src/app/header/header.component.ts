@@ -1,13 +1,16 @@
 import {Component} from '@angular/core';
 import {Response} from '@angular/http';
 import {DataStorageService} from '../shared/data-storage.service';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
     selector: 'app-header',
-    templateUrl: './header.component.html'
+    styles: ['.btn-group {margin-top: 7px;}'],
+    templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  constructor(private dataSS:DataStorageService){}
+  constructor(private dataSS:DataStorageService,
+              private authService: AuthService){}
   // @Output() featureSelected = new EventEmitter<string>();
   //
   // onSelect(feature: string) {
@@ -24,6 +27,8 @@ export class HeaderComponent {
 }
  onFetchData() {
     this.dataSS.getRecipes();
-
-}
+  }
+  onLogout() {
+    this.authService.logout();
+  }
 }

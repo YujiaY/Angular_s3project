@@ -11,6 +11,18 @@
               <li routerLinkActive="active"><a routerLink= '/shopping-list' >Shopping List</a></li>
             </ul>
           <ul class="nav navbar-nav navbar-right">
+            <ng-template [ngIf]="!authService.isAuthenticated()">
+              <li><a routerLink="/signup">Register</a></li>
+              <li><a routerLink="/signin">Login</a></li>
+            </ng-template>
+            <ng-template [ngIf]="authService.isAuthenticated()">
+              <li><a
+                routerLink="/signin"
+                style="cursor: pointer"
+                (click)="onLogout()"
+              >LogOut</a></li>
+
+
             <div class="btn-group" appDropdown>
               <button
                 type="button"
@@ -28,6 +40,7 @@
                 ><a >Fetch Data</a></li>
               </ul>
             </div>
+          </ng-template>
 
           </ul>
         </div>
